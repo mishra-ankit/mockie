@@ -102,11 +102,11 @@ app.controller('MainCtrl', function($scope, $http) {
 
     $scope.submit = function() {
         var currentValue = ace.edit("editor").getValue();
-        var host = "http://localhost:3000";
+        var host = "https://mockie.herokuapp.com";
         $http.post(host, {
                 data: currentValue,
                 selectedCode: $scope.selectedCode || "200",
-                contentType: $scope.selectedContentTypes || "utf-16"
+                contentType: $scope.selectedContentTypes || "utf-8"
             }).then(function(data) {
                 console.dir(data);
                 $scope.message = data.data._id;
